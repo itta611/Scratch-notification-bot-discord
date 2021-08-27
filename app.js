@@ -26,9 +26,9 @@ client.on('messageCreate', message => {
   if (message.content === 'sn-unable') {
     if (thisUserEnabledID !== -1) {
       updateEnabledUser();
-      message.channel.send(`${enableUsers[thisUserEnabledID][1]}さんのタイピング測定を無効にします！`);
+      message.channel.send(`${enableUsers[thisUserEnabledID][1]}さんのScratch通知を無効にします！`);
     } else {
-      message.channel.send(`${enableUsers[thisUserEnabledID][1]}さんのタイピング測定はもともと無効です。\n有効にするには${'`sn-enable 【ここにユーザー名】`'}コマンドを利用してください。`);
+      message.channel.send(`${enableUsers[thisUserEnabledID][1]}さんのScratch通知はもともと無効です。\n有効にするには${'`sn-enable 【ここにユーザー名】`'}コマンドを利用してください。`);
     }
     enableUsers.pop(thisUserEnabledID);
     return;
@@ -75,4 +75,4 @@ client.on('messageReactionAdd', async (reaction, user) => {
   console.log(`${reaction.message.guild} で ${user.tag} が ${reaction.emoji.name} をリアクションしました`)
 })
 
-client.login(process.env.DISCORD_BOT_TOKEN);
+client.login('ODgwNjQ5MDYwMTEyMDExMzI3.YShWWQ.IFppyR7zbfDUoApG1t8Plc2-upI');
