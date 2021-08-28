@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fs = require("fs");
 const https = require('https');
 let enableUsers = [];
-const client = new Discord.Client({intents: ['GUILDS', 'GUILD_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'DIRECT_MESSAGE_REACTIONS']});
+const client = new Discord.Client({intents: ['GUILDS', 'GUILD_MESSAGES', 'DIRECT_MESSAGE_REACTIONS']});
 fs.readFile("users.json", "utf-8", (err, data) => {
   if (err) throw err;
   enableUsers = JSON.parse(data);
