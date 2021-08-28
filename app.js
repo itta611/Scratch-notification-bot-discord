@@ -23,7 +23,7 @@ client.on('messageCreate', message => {
     } else {
       enableUsers.push([message.author.id, message.content.substring(10), 0]);
       updateEnabledUser();
-      message.channel.send(`${enableUsers[thisUserEnabledID][1]}さんのScratch通知を有効にしました！`);
+      message.channel.send(`${message.content.substring(10)}さんのScratch通知を有効にしました！`);
     }
     return;
   }
