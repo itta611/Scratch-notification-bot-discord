@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fs = require("fs");
 const https = require('https');
-const enableUsers = require('users.json');
+const enableUsers = require('../users.json');
 const client = new Discord.Client({intents: ['GUILDS', 'GUILD_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'DIRECT_MESSAGE_REACTIONS']});
 client.on('guildCreate', guild => {
   client.user.setActivity('`sn-enable`コマンドで有効化', {
@@ -60,7 +60,7 @@ client.on('messageCreate', message => {
 
 function updateEnabledUser() {
   let writeText = JSON.stringify(enableUsers);
-  fs.open("node_modules/users.json", "a", (err, fd) => {
+  fs.open("users.json", "a", (err, fd) => {
     if (err) throw err;
     fs.write(fd, writeText, 0, (err) => {
       if (err) throw err;
