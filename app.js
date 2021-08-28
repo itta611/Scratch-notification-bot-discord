@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fs = require("fs");
 const https = require('https');
-const enableUsers = [];
+let enableUsers = [];
 const client = new Discord.Client({intents: ['GUILDS', 'GUILD_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'DIRECT_MESSAGE_REACTIONS']});
 client.on('guildCreate', guild => {
   client.user.setActivity('`sn-enable`コマンドで有効化', {
