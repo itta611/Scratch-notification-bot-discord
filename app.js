@@ -15,22 +15,24 @@ client.on('messageCreate', message => {
     return;
   }
   let thisUserEnabledID = enableUsers.findIndex(function(elm) {return elm[0] === message.author.id});
-  if (message.content.substring(0, 10) === 'sn-enable ') {
+  if (message === 'sn-enable') {
+    message.reply('引数を入力してください（sn-enable ここにユーザー名）');
+  } else if (message.content.substring(0, 10) === 'sn-enable ') {
     if (thisUserEnabledID !== -1 && thisUserEnabledID !== undefined) {
-      message.channel.send(`${enableUsers[thisUserEnabledID][1]}さんのScratch通知はもともと有効です。\n無効にするには${'`sn-unable`'}コマンドを利用してください。`);
+      message.reply(`${enableUsers[thisUserEnabledID][1]}さんのScratch通知はもともと有効です。\n無効にするには${'`sn-unable`'}コマンドを利用してください。`);
     } else {
       enableUsers.push([message.author.id, message.content.substring(10), 0]);
       updateEnabledUser();
-      message.channel.send(`${message.content.substring(10)}さんのScratch通知を有効にしました！`);
+      message.reply(`${message.content.substring(10)}さんのScratch通知を有効にしました！`);
     }
     return;
   }
   if (message.content === 'sn-unable') {
     if (thisUserEnabledID !== -1) {
       updateEnabledUser();
-      message.channel.send(`${enableUsers[thisUserEnabledID][1]}さんのScratch通知を無効にします！`);
+      message.reply(`${enableUsers[thisUserEnabledID][1]}さんのScratch通知を無効にします！`);
     } else {
-      message.channel.send(`${enableUsers[thisUserEnabledID][1]}さんのScratch通知はもともと無効です。\n有効にするには${'`sn-enable 【ここにユーザー名】`'}コマンドを利用してください。`);
+      message.reply(`${enableUsers[thisUserEnabledID][1]}さんのScratch通知はもともと無効です。\n有効にするには${'`sn-enable 【ここにユーザー名】`'}コマンドを利用してください。`);
     }
     enableUsers.pop(thisUserEnabledID);
     return;
