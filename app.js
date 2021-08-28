@@ -1,12 +1,16 @@
 const Discord = require('discord.js');
 const fs = require("fs");
 const https = require('https');
-const enableUsers = require('../users.json');
+const enableUsers = [];
 const client = new Discord.Client({intents: ['GUILDS', 'GUILD_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'DIRECT_MESSAGE_REACTIONS']});
 client.on('guildCreate', guild => {
   client.user.setActivity('`sn-enable`コマンドで有効化', {
     type: 'PLAYING'
   });
+});
+fs.readFile("users.json", "utf-8", (err, data) => {
+  if (err) throw err;
+  enableUsers = JSON.parse(data);
 });
 client.on('messageCreate', message => {
   if (message.author.bot){
