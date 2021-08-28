@@ -16,7 +16,7 @@ client.on('messageCreate', message => {
   }
   let thisUserEnabledID = enableUsers.findIndex(function(elm) {return elm[0] === message.author.id});
   if (message.content === 'sn-enable') {
-    message.reply('引数を入力してください（sn-enable ここにユーザー名）');
+    message.reply('引数を入力してください [sn-enable ここにユーザー名]');
   } else if (message.content.substring(0, 10) === 'sn-enable ') {
     if (thisUserEnabledID !== -1 && thisUserEnabledID !== undefined) {
       message.reply(`${enableUsers[thisUserEnabledID][1]}さんのScratch通知はもともと有効です。\n無効にするには${'`sn-unable`'}コマンドを利用してください。`);
