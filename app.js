@@ -79,4 +79,4 @@ client.on('messageReactionAdd', async (reaction, user) => {
   console.log(`${reaction.message.guild} で ${user.tag} が ${reaction.emoji.name} をリアクションしました`)
 })
 
-client.login();
+client.login(); // updated
