@@ -15,7 +15,7 @@ client.on('messageCreate', message => {
     return;
   }
   let thisUserEnabledID = enableUsers.findIndex(function(elm) {return elm[0] === message.author.id});
-  if (message === 'sn-enable') {
+  if (message.content === 'sn-enable') {
     message.reply('引数を入力してください（sn-enable ここにユーザー名）');
   } else if (message.content.substring(0, 10) === 'sn-enable ') {
     if (thisUserEnabledID !== -1 && thisUserEnabledID !== undefined) {
